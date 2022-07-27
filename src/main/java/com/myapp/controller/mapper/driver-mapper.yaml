@@ -9,4 +9,5 @@ spec:
   type: service
   lifecycle: experimental
   owner: guest
-  system:   
+  system: springbootapp
+  dependsOn: ['component:driver-dto','component:driver-do']
