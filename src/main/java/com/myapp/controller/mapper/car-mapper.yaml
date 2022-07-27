@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: logger-activity
-  description: Logger Activity
+  name: car-mapper
+  description: Car Mapper
   annotations:
    backstage.io/techdocs-ref: dir:.
 spec:
