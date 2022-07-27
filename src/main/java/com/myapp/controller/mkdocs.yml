@@ -3,11 +3,8 @@ repo_url: https://github.com/derek-sweetman/springbootapp
 repo_name: 'springbootapp'
 
 nav:
-  - JSONUtils: jsonutils.md
-  - ErrorUtils: errorutils.md
-  - StringUtils: stringutils.md
-  - ConstEnum: constenum.md
-  
+  - CarController: carcontroller.md
+  - DriverController: drivercontroller.md
 
 plugins:
   - techdocs-core
