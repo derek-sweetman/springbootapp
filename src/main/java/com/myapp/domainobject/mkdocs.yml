@@ -3,8 +3,8 @@ repo_url: https://github.com/derek-sweetman/springbootapp
 repo_name: 'springbootapp'
 
 nav:
-  - CarMapper: carmapper.md
-  - DriverMapper: drivermapper.md
+  - CarDO: carmapper.md
+  - DriverDO: drivermapper.md
 
 plugins:
   - techdocs-core
