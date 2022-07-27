@@ -1,0 +1,10 @@
+site_name: 'datatransferobject'
+repo_url: https://github.com/derek-sweetman/springbootapp
+repo_name: 'springbootapp'
+
+nav:
+  - CarDTO: cardto.md
+  - DriverDTO: driverdto.md
+
+plugins:
+  - techdocs-core
