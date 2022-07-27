@@ -1,0 +1,387 @@
+swagger: '2.0'
+info:
+  description: This service is to experiment with Spring Boot.
+  version: Version 1.0 - mw
+  title: myapp Server
+  termsOfService: urn:tos
+  contact:
+    name: contact@alexmanrique.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0
+host: 127.0.0.1:8080
+basePath: /
+tags:
+  - name: car-controller
+    description: Car Controller
+  - name: driver-controller
+    description: Driver Controller
+paths:
+  /v1/cars:
+    get:
+      tags:
+        - car-controller
+      summary: findCars
+      operationId: findCarsUsingGET
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CarDTO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+        - car-controller
+      summary: createCar
+      operationId: createCarUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: carDTO
+          description: carDTO
+          required: true
+          schema:
+            $ref: '#/definitions/CarDTO'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/CarDTO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/cars/{licensePlate}:
+    get:
+      tags:
+        - car-controller
+      summary: getCar
+      operationId: getCarUsingGET
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: licensePlate
+          in: path
+          description: licensePlate
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CarDTO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+        - car-controller
+      summary: deleteCar
+      operationId: deleteCarUsingDELETE
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: licensePlate
+          in: path
+          description: licensePlate
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v1/drivers:
+    get:
+      tags:
+        - driver-controller
+      summary: findDrivers
+      operationId: findDriversUsingGET
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: onlineStatus
+          in: query
+          description: onlineStatus
+          required: false
+          type: string
+          enum:
+            - ONLINE
+            - OFFLINE
+        - name: username
+          in: query
+          description: username
+          required: false
+          type: string
+        - name: deleted
+          in: query
+          description: deleted
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DriverDTO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+        - driver-controller
+      summary: createDriver
+      operationId: createDriverUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: driverDTO
+          description: driverDTO
+          required: true
+          schema:
+            $ref: '#/definitions/DriverDTO'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/DriverDTO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v1/drivers/{driverId}:
+    get:
+      tags:
+        - driver-controller
+      summary: getDriver
+      operationId: getDriverUsingGET
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: driverId
+          in: path
+          description: driverId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DriverDTO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+        - driver-controller
+      summary: updateLocation
+      operationId: updateLocationUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: driverId
+          in: path
+          description: driverId
+          required: true
+          type: integer
+          format: int64
+        - name: longitude
+          in: query
+          description: longitude
+          required: true
+          type: number
+          format: double
+        - name: latitude
+          in: query
+          description: latitude
+          required: true
+          type: number
+          format: double
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+        - driver-controller
+      summary: deleteDriver
+      operationId: deleteDriverUsingDELETE
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: driverId
+          in: path
+          description: driverId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v1/drivers/{driverId}/car/{licensePlate}:
+    put:
+      tags:
+        - driver-controller
+      summary: selectCar
+      operationId: selectCarUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: driverId
+          in: path
+          description: driverId
+          required: true
+          type: integer
+          format: int64
+        - name: licensePlate
+          in: path
+          description: licensePlate
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+        - driver-controller
+      summary: deselectCar
+      operationId: deselectCarUsingDELETE
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: driverId
+          in: path
+          description: driverId
+          required: true
+          type: integer
+          format: int64
+        - name: licensePlate
+          in: path
+          description: licensePlate
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+definitions:
+  DriverDTO:
+    properties:
+      coordinate:
+        $ref: '#/definitions/GeoCoordinate'
+      id:
+        type: integer
+        format: int64
+      password:
+        type: string
+      username:
+        type: string
+  GeoCoordinate:
+    properties:
+      latitude:
+        type: number
+        format: double
+      longitude:
+        type: number
+        format: double
+  CarDTO:
+    properties:
+      convertible:
+        type: boolean
+      driver:
+        $ref: '#/definitions/DriverDTO'
+      engineType:
+        type: string
+        enum:
+          - ELECTRIC
+          - HYBRID
+          - GAS
+      licensePlate:
+        type: string
+      manufacturer:
+        type: string
+      rating:
+        type: integer
+        format: int32
+      seatCount:
+        type: integer
+        format: int32
+
