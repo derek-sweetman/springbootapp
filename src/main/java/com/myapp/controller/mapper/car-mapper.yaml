@@ -10,4 +10,4 @@ spec:
   lifecycle: experimental
   owner: guest
   system: springbootapp
-  depends on: ['component:driver-mapper']
+  dependsOn: ['component:driver-mapper']
