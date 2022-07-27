@@ -1,0 +1,10 @@
+site_name: 'controller'
+repo_url: https://github.com/derek-sweetman/springbootapp
+repo_name: 'springbootapp'
+
+nav:
+  - CarController: carcontroller.md
+  - DriverController: drivercontroller.md
+
+plugins:
+  - techdocs-core
