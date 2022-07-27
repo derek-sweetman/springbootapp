@@ -9,4 +9,5 @@ spec:
   type: service
   lifecycle: experimental
   owner: guest
-  system:   
+  system: springbootapp
+  dependsOn: ['component:driver-mapper','component:car-already-in-use-exception','component:constraints-violation-exception']
