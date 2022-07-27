@@ -7,5 +7,6 @@ spec:
   type: openapi
   lifecycle: production
   owner: spotify
+  system: springbootapp
   definition:
     $text: https://github.com/kkvuong/backstage-app/blob/main/swagger.yml
