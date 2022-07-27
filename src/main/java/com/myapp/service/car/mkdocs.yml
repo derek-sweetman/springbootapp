@@ -4,6 +4,7 @@ site_name: 'Car'
 repo_name: 'springbootapp'
 
 nav:
+  - Home: index.md
   - Car Service: carservice.md
   - Default Car Service: defaultcarservice.md
 
