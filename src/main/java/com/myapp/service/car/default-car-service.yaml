@@ -9,4 +9,5 @@ spec:
   type: service
   lifecycle: experimental
   owner: guest
-  system:   
+  system: springbootapp
+  dependsOn: ['component:driver-controller','component:car-already-in-use-exception', 'component:driver-do', 'component:car-do', 'component:contraints-violation-exception']
