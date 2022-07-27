@@ -10,4 +10,4 @@ spec:
   lifecycle: experimental
   owner: guest
   system: RabbitMQ
-  dependsOn: ['component:carMapper']
+  dependsOn: ['component:CarMapper']
