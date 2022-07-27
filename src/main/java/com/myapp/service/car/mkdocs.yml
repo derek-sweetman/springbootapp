@@ -1,0 +1,12 @@
+
+site_name: 'Car'
+
+repo_name: 'springbootapp'
+
+nav:
+  - Car Service: carservice.md
+  - Default Car Service: defaultcarservice.md
+
+
+plugins:
+  - techdocs-core
