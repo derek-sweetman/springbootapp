@@ -1,0 +1,13 @@
+site_name: 'controller'
+repo_url: https://github.com/derek-sweetman/springbootapp
+repo_name: 'springbootapp'
+
+nav:
+  - JSONUtils: jsonutils.md
+  - ErrorUtils: errorutils.md
+  - StringUtils: stringutils.md
+  - ConstEnum: constenum.md
+  
+
+plugins:
+  - techdocs-core
