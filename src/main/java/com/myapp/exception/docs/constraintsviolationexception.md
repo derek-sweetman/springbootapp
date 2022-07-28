@@ -1,5 +1,6 @@
 # ConstraintsViolationException  
-[GitHub Repo](https://github.com/derek-sweetman/springbootapp/blob/master/src/main/java/com/myapp/exception/ConstraintsViolationException.java)  
+### GitHub Repo  
+[https://github.com/derek-sweetman/springbootapp/blob/master/src/main/java/com/myapp/exception/ConstraintsViolationException.java](https://github.com/derek-sweetman/springbootapp/blob/master/src/main/java/com/myapp/exception/ConstraintsViolationException.java)  
 ### Type  
 - Custom Exception  
 ### Description  
