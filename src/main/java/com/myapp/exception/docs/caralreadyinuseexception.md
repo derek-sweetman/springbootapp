@@ -1,5 +1,6 @@
 # CarAlreadyInUseException  
-[GitHub Repo](https://github.com/derek-sweetman/springbootapp/blob/master/src/main/java/com/myapp/exception/CarAlreadyInUseException.java)  
+### GitHub Repo  
+[https://github.com/derek-sweetman/springbootapp/blob/master/src/main/java/com/myapp/exception/CarAlreadyInUseException.java](https://github.com/derek-sweetman/springbootapp/blob/master/src/main/java/com/myapp/exception/CarAlreadyInUseException.java)  
 ### Type  
 - Custom Exception  
 ### Description  
